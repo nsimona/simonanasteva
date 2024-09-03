@@ -23,6 +23,30 @@
     }
     gtag("js", new Date());
     gtag("config", "G-7NHHQK2GFD");
+    var email = document.getElementById("email"),
+      button = document.getElementById("button");
+
+    function validateEmail(email) {
+      var ex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+      return ex.test(email);
+    }
+
+    email.addEventListener("keydown", function () {
+      var email = this.value;
+
+      if (validateEmail(email)) {
+        button.classList.add("is-active");
+      }
+    });
+
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      this.classList.add("is-done", "is-active");
+
+      setTimeout(function () {
+        button.innerHTML = "Thanks! Check Your Email.";
+      }, 500);
+    });
   </script>
   <body>
     <main class="container">
@@ -32,9 +56,16 @@
           <h1><img src="assets/gt.png" alt="gt" class="gt" />simona.nasteva</h1>
         </div>
       </div>
-      <span class="thin">
-        You've stumbled upon my blog, and guess what? It's <i>coming soon</i> and will be worth the wait!
-      </span>
+      <div class="thin">
+        You've stumbled upon my blog, and guess what? It's <i>coming soon</i> and will be worth the wait! <br />
+        Leave
+        <form>
+          <input type="email" id="email" />
+          <label for="email">email address</label>
+          <button id="button">OK</button>
+        </form>
+        and be the first to know when I go live.
+      </div>
       <p class="social">
         <a href="https://github.com/nsimona"><img src="assets/github.png" alt="github" class="gh" /></a
         ><a href="https://www.linkedin.com/in/nsimona/"><img src="assets/linkedin.png" alt="linkedin" /></a>
