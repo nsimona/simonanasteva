@@ -72,13 +72,13 @@
         button = document.getElementById("mc-embedded-subscribe");
 
       function validateEmail(email) {
-        var ex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{1,6}(?:\.[a-z]{2})?)$/i;
+        var ex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{1,6}(?:\.[a-z]{1})?)$/i;
         return ex.test(email);
       }
 
       email.addEventListener("keydown", function () {
         var email = this.value;
-
+        
         if (validateEmail(email)) {
           button.classList.add("is-active");
         } else {
@@ -87,7 +87,6 @@
       });
 
       button.addEventListener("click", function (e) {
-        e.preventDefault();
         if (!validateEmail(email.value)) return;
 
         const originalText = button.innerHTML;
