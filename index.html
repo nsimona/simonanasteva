@@ -85,23 +85,6 @@
           button.classList.remove("is-active");
         }
       });
-
-      button.addEventListener("click", function (e) {
-        if (!validateEmail(email.value)) return;
-
-        const originalText = button.innerHTML;
-        this.classList.add("is-done", "is-active");
-
-        setTimeout(() => {
-          button.innerHTML = "Thanks! Check Your Email.";
-        }, 300);
-
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          button.classList.remove("is-done", "is-active");
-          email.value = "";
-        }, 9000);
-      });
     </script>
   </body>
 </html>
